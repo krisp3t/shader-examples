@@ -1,0 +1,29 @@
+newmtl red
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+map_Kd ../../common/textures/red.bmp
+
+newmtl green
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+map_Kd ../../common/textures/green.bmp
+
+newmtl blue
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+map_Kd ../../common/textures/blue.bmp
+
+newmtl yellow
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+map_Kd ../../common/textures/yellow.bmp
+
+newmtl white
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+map_Kd ../../common/textures/white.bmp
+
+newmtl magenta
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+map_Kd ../../common/textures/magenta.bmp

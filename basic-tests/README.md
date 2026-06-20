@@ -1,31 +1,65 @@
 # Renderer Basic Tests
 
-This repository contains a suite of progressively advanced tests designed to validate the functionality of different renderers. These tests serve as benchmarks for ensuring consistent and correct behavior across various graphics APIs, including **OpenGL**, **DirectX**, **Vulkan** and **software renderers**.
+This folder contains the grouped core renderer baseline for RetroRenderer. The suite stays focused on foundational behavior: geometry submission, clipping, culling, projection, texture mapping, scene graph import, and lighting.
 
-## Table of Contents
+## Ground rules
+- Tests are organized by topic so related regressions can be checked together.
+- Each numbered test lives in its own folder with a loadable `model.obj` and a directory `README.md`.
+- Numbered scenes can auto-apply baseline settings through `example-baseline.cfg` files found from parent folders down to the scene folder.
+- Managed baseline loads reset built-in material overrides before applying scene-specific settings, including clearing any manual texture override.
+- Texture-driven scenes still rely on mesh-linked MTL materials after the managed baseline is applied.
 
-1. [Introduction](#introduction)
-2. [Test List](#test-list)
-3. [Instructions](#instructions)
-4. [Contributing](#contributing)
-5. [License](#license)
+## Core test groups
+### `geometry/`
+- `01a-2d-triangle`
+- `01b-2d-quad`
+- `02-2d-scene`
+- `03-3d-cube`
+- `04-depth-overlap`
+- `16-degenerate-and-skinny-triangles`
+- `17-shared-edge-fill-rule`
 
-## Introduction
+### `clipping/`
+- `05-clipping`
+- `13-near-plane-clipping`
+- `14-frustum-edge-clipping`
+- `15-far-plane-culling`
 
-The tests start from the basics, such as rendering a single flat triangle, and progress to advanced features like physically based rendering (PBR) and shadow mapping. These tests can help you in progressively achieving accuracy and feature completeness in your renderer.
+### `culling/`
+- `11-front-face-winding`
+- `12-backface-culling`
 
-Each test includes:
-- **Description**: The purpose of the test.
-- **Input Data**: Geometry, textures, and other relevant inputs.
-- **Expected Output**: Images or descriptions of correct results.
+### `textures/`
+- `07-texture-mapping`
+- `19-uv-tiling-wrap`
+- `20-perspective-correct-floor`
+- `21-texture-atlas-sampling`
+- `22-non-square-texture-mapping`
+- `23-per-face-uv-seams`
+- `24-texture-minify-magnify`
 
-## Test List
-- **01: Flat Triangle**
-- **02: Interpolated Triangle**
-- **03: Wireframe Cube**
+### `hierarchy/`
+- `08-scene-hierarchy`
 
-## Instructions
+### `lighting/`
+- `06-vertex-color`
+- `09-phong-shading`
+- `25-flat-vs-smooth-normals`
+- `26-single-light-attenuation`
+- `27-diffuse-angle-ramp`
+- `28-specular-highlight-shininess`
 
-## Contributing
+### `environment/`
+- `10-skybox`
 
-## License
+### `projection/`
+- `18-aspect-ratio-framing`
+- `29-orthographic-projection`
+
+## Outside the core basic suite
+- `bloom/`: advanced or non-basic placeholders kept outside the core 30-test baseline.
+- `deferred-shading/`: advanced or non-basic placeholders kept outside the core 30-test baseline.
+- `normal-mapping/`: advanced or non-basic placeholders kept outside the core 30-test baseline.
+- `pbr/`: advanced or non-basic placeholders kept outside the core 30-test baseline.
+- `shadow-mapping/`: advanced or non-basic placeholders kept outside the core 30-test baseline.
+- `stencil-test/`: advanced or non-basic placeholders kept outside the core 30-test baseline.
